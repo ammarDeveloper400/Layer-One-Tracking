@@ -1,0 +1,72 @@
+<div class="card mb-2 mb-xl-8">
+  <div class="card-body pt-9 ">
+    <div class="row">
+    <div
+      class="col-xs-4 col-sm-4 col-md-4 col-xl-4 text-center"
+      style="border-right: 1px solid black; font-weight: 900;cursor: pointer;"
+      (click)="GetViewsData()"
+      [ngClass]="isViewCount ? 'active' : 'inactive'"
+    >
+      <span style="font-size: 20px">{{totalViews}}</span> <br />Views({{initialDaysCount}} days)
+    </div>
+    <div
+      class="col-xs-4 col-sm-4 col-md-4 col-xl-4 text-center"
+      style="border-right: 1px solid black; font-weight: 900;cursor: pointer;"
+      (click)="GetReadsData()"
+      [ngClass]="isReadCount ? 'active' : 'inactive'"
+    >
+      <span style="font-size: 20px">{{totalReads}}</span> <br />Reads({{initialDaysCount}} days)
+    </div>
+    <div
+      class="col-xs-4 col-sm-4 col-md-4 col-xl-4 text-center"
+      style="font-weight: 900;cursor: pointer;"
+      (click)="GetRecommendsData()"
+      [ngClass]="isRecommendCount ? 'active' : 'inactive'"
+    >
+      <span style="font-size: 20px">{{totalRecommends}}</span> <br />Recommends({{initialDaysCount}} days)
+    </div>
+  </div>
+  </div>
+</div>
+
+<section class="card mb-5 mb-xl-8">
+  <div class="card-body py-3">
+    <section class="card mb-5 mb-xl-8">
+      <div class="card-body">
+        <div #chartRef id="kt_charts_widget_1_chart" [style.height]="'350px'">
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [xaxis]="chartOptions.xaxis"
+            [yaxis]="chartOptions.yaxis"
+            [dataLabels]="chartOptions.dataLabels"
+            [stroke]="chartOptions.stroke"
+            [legend]="chartOptions.legend"
+            [fill]="chartOptions.fill"
+            [states]="chartOptions.states"
+            [tooltip]="chartOptions.tooltip"
+            [colors]="chartOptions.colors"
+            [markers]="chartOptions.markers"
+            [plotOptions]="chartOptions.plotOptions"
+          ></apx-chart>
+        </div>
+
+        <div class="col-lg-12 text-center mt-15" style="font-weight: 700">
+          <a
+            [class]="activeClass"
+            (click)="FifteenDays()"
+            style="cursor: pointer"
+            >Last 15 days</a
+          >
+          |
+          <a
+            [class]="inActiveClass"
+            (click)="ThirtyDays()"
+            style="cursor: pointer"
+            >Last 30 days</a
+          >
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

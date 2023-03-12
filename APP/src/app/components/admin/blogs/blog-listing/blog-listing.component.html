@@ -1,0 +1,175 @@
+<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+<div class=" w-lg-1450px">
+<section class="card mb-5 mb-xl-8" >
+  <div class="card-header col-lg-12 ">
+    <div class="card-title align-items-start flex-column col-lg-4">
+      <input
+        type="text"
+        class="form-control"
+        name="searchText"
+        placeholder="Search by title"
+        autocomplete="off"
+        (keyup)="onKeySearch($event)"
+      />
+    </div>
+
+    <div class="col-lg-7 card-toolbar rightdiv" style="margin: 1rem 0">
+      <button
+        [routerLink]="['/admin/blog-setup']"
+        class="btn btn-sm"
+        style="background-color: #1a4570; color: white"
+      >
+        Add New Blog
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body py-3 ">
+    <!-- <section class="card mb-5 mb-xl-8" >
+            <div class="card-body">
+              <div #chartRef id="kt_charts_widget_1_chart" [style.height]="'350px'">
+                <apx-chart
+                  [series]="chartOptions.series"
+                  [chart]="chartOptions.chart" 
+                  [xaxis]="chartOptions.xaxis"
+                  [yaxis]="chartOptions.yaxis"
+                  [dataLabels]="chartOptions.dataLabels"
+                  [stroke]="chartOptions.stroke"
+                  [legend]="chartOptions.legend"
+                  [fill]="chartOptions.fill"
+                  [states]="chartOptions.states"
+                  [tooltip]="chartOptions.tooltip"
+                  [colors]="chartOptions.colors"
+                  [markers]="chartOptions.markers"
+                  [plotOptions]="chartOptions.plotOptions"
+                ></apx-chart>
+              </div>
+            </div>
+          </section>  -->
+
+    <div class="table-responsive">
+      <table class="table align-middle gs-0 gy-4">
+        <thead>
+          <tr
+            class="fw-bolder text-muted"
+            style="background-color: #1a4570; color: white"
+          >
+            <th class="ps-4 rounded-start min-w-350px">Title</th>
+            <th class="ps-4 rounded-start min-w-120px">Views</th>
+            <th class="ps-4 rounded-start min-w-120px">Reads</th>
+            <th class="ps-4 rounded-start min-w-120px">Read ratio</th>
+            <th class="ps-4 rounded-start min-w-120px">Recommends</th>
+            <th class="ps-4 rounded-start min-w-120px">Status</th>
+            <th class="text-end rounded-end text-center min-w-110px">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blog of blogListEmitter$ | async">
+            <td>
+              <strong>{{ blog.title }}</strong>
+            </td>
+
+            <td>
+              {{ blog.viewCount }}
+            </td>
+
+            <td>
+              {{ blog.readCount }}
+            </td>
+
+            <td>
+              {{
+                (blog.viewCount > 0
+                  ? (blog.readCount / blog.viewCount) * 100
+                  : 0
+                ) | number : "1.0-0"
+              }}%
+            </td>
+
+            <td>
+              {{ blog.recommendCount }}
+            </td>
+
+            <td>
+              <span
+                *ngIf="blog.isPublish"
+                class="badge badge-light-success fs-7 fw-bold"
+                >Published</span
+              >
+              <span
+                *ngIf="!blog.isPublish"
+                class="badge badge-light-danger fs-7 fw-bold"
+                >Un-Published</span
+              >
+            </td>
+
+            <td class="text-center">
+              <button
+                [routerLink]="['/admin/blog-setup']"
+                [queryParams]="{ code: blog.code }"
+                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                title="Edit"
+              >
+                <span
+                  [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+                  class="svg-icon svg-icon-3"
+                ></span>
+              </button>
+
+              <button
+                (click)="DeleteBlog(blog.code)"
+                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 delete-btnclk-{{
+                  blog.code
+                }}"
+                title="Delete"
+              >
+                <span
+                  class="no_display spinner-border text-primary spinner-border-sm mr-1 delete-loader-{{
+                    blog.code
+                  }}"
+                  style="margin-left: 4px"
+                >
+                </span>
+                <span
+                  [inlineSVG]="
+                    './assets/media/icons/duotune/general/gen027.svg'
+                  "
+                  class="svg-icon svg-icon-3 delete-btn-{{ blog.code }}"
+                ></span>
+              </button>
+
+              <button
+                (click)="PublishToggle(blog.code)"
+                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 reset-btnclk-{{
+                  blog.code
+                }}"
+                title="{{ blog.isPublish ? 'UnPublish' : 'Publish' }}"
+              >
+                <span
+                  class="no_display spinner-border text-primary spinner-border-sm mr-1 reset-loader-{{
+                    blog.code
+                  }}"
+                  style="margin-left: 4px"
+                >
+                </span>
+                <span
+                  [inlineSVG]="'./assets/media/icons/duotune/coding/cod001.svg'"
+                  class="svg-icon svg-icon-3 reset-btn-{{ blog.code }}"
+                ></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        class="col-lg-12 text-center"
+        *ngIf="(blogListEmitter$ | async)?.length == 0"
+      >
+        <h5 style="color: #1a4570">No record found</h5>
+      </div>
+    </div>
+  </div>
+</section>
+</div></div>

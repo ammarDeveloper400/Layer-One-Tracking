@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "9lb3G1Ds+IKazraCTm/OyOBDTXVaHo3ikyhj/KGel6w=",
+  "Source": "API",
+  "BasePath": "_content/API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "API\\wwwroot",
+      "Source": "API",
+      "ContentRoot": "D:\\Projects\\Layer One Project\\API\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Projects\\Layer One Project\\API\\API\\wwwroot\\blogs\\583e49f1650b4f7494aeed48a15ed4df\\3120230306002725943.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\Layer One Project\\API\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "blogs/583e49f1650b4f7494aeed48a15ed4df/3120230306002725943.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\blogs\\583e49f1650b4f7494aeed48a15ed4df\\3120230306002725943.png"
+    },
+    {
+      "Identity": "D:\\Projects\\Layer One Project\\API\\API\\wwwroot\\blogs\\e23eaac6ec2a461fad1990d21c91a2f2\\3320230306014848327.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\Layer One Project\\API\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "blogs/e23eaac6ec2a461fad1990d21c91a2f2/3320230306014848327.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\blogs\\e23eaac6ec2a461fad1990d21c91a2f2\\3320230306014848327.png"
+    }
+  ]
+}

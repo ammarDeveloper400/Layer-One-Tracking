@@ -1,0 +1,29 @@
+----------API-----------------
+
+1- Delete Migrations folder
+2- Than execute these 2 commands in package manager console (View => Other Windows => Package Manager Console)
+2.1- add-migration any_migration_name
+2.2- update-database
+
+Your API is ready
+-------------------------------
+
+---------APP-------------------
+
+1- Run this command 
+1.1- npm i
+
+2- if above command show any error than execute this command
+2.1- npm install --save --legacy-peer-deps
+
+Your App is ready
+
+--------------------------------
+
+-----------SQL------------------
+
+1- Execute all 3 store procedures in sql editor one by one under Database created with name by API
+
+Your sql is ready
+
+--------------------------------

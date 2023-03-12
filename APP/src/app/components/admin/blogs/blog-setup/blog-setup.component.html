@@ -1,0 +1,232 @@
+<div class="card mb-5 mb-xl-10" style="width: 99%">
+  <div
+    class="card-header border-0 cursor-pointer"
+    role="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#kt_account_profile_details"
+    aria-expanded="true"
+    aria-controls="kt_account_profile_details"
+  >
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0" *ngIf="!isEdit">Add New Blog</h3>
+      <h3 class="fw-bolder m-0" *ngIf="isEdit">Update Blog</h3>
+    </div>
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form
+      class="form"
+      [formGroup]="blogAddForm"
+      novalidate="novalidate"
+      id="kt_login_signin_form"
+      (ngSubmit)="submit()"
+    >
+      <div class="card-body p-9 row">
+        <section
+          class="col-lg-4 text-center align-middle"
+          style="display: block; margin-top: 50px"
+        >
+          <div class="row mb-6">
+            <section class="col-lg-12">
+              <section
+                class="col-lg-8"
+                style="justify-content: center; display: inline-block; position:relative;"
+              >
+
+             <button *ngIf="showCloseButton" type="button" class="btn-close ps-10 AClass"  aria-label="Close" (click)="RemoveImage(fileInput)"></button>
+                <img
+                  [src]="imageSrcEmitter$ | async"
+                  (error)="onImgError($event)"
+                  class="img-responsive img-rounded"
+                  id="targetImage"
+                  style="
+                    height: 356px;
+                    width: 335px;
+                    margin-top: -36px;
+                    margin-left: -33px;
+                  "
+                />
+                <input
+                  #fileInput
+                  type="file"
+                  id="imageUploadForm"
+                  formControlName="image"
+                  class="form-control"
+                  (change)="onFileChange($event)"
+                  accept=".jpg,.png"
+                />
+              </section>
+            </section>
+          </div>
+        </section>
+        <section class="col-lg-7 ms-5">
+          <div class="row mb-6">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12 fv-row">
+                  <label class="col-lg-4 col-form-label fw-bold fs-6"
+                    >Title</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                    name="title"
+                    formControlName="title"
+                    placeholder="Title"
+                    autocomplete="off"
+                    [ngClass]="{
+                      'is-invalid': blogAddForm.controls['title'].invalid,
+                      'is-valid': blogAddForm.controls['title'].valid
+                    }"
+                  />
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'Required',
+                      control: blogAddForm.controls['title']
+                    }"
+                  ></ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-6">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12 fv-row">
+                  <label class="col-lg-4 col-form-label fw-bold fs-6"
+                    >Sub Title</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-lg form-control-solid"
+                    placeholder="Sub Title"
+                    name="subTitle"
+                    formControlName="subTitle"
+                    autocomplete="off"
+                    [ngClass]="{
+                      'is-invalid': blogAddForm.controls['subTitle'].invalid,
+                      'is-valid': blogAddForm.controls['subTitle'].valid
+                    }"
+                  />
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'Required',
+                      control: blogAddForm.controls['subTitle']
+                    }"
+                  ></ng-container>
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'minLength',
+                      message: 'Sub Title should have at least 3 symbols',
+                      control: blogAddForm.controls['subTitle']
+                    }"
+                  ></ng-container>
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'maxLength',
+                      message: 'Sub Title should have maximum 360 symbols',
+                      control: blogAddForm.controls['subTitle']
+                    }"
+                  ></ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-6">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12 fv-row">
+                  <label class="col-lg-4 col-form-label fw-bold fs-6"
+                    >Description</label
+                  >
+                  <ckeditor
+                    [editor]="Editor"
+                    data=""
+                    formControlName="description"
+                  ></ckeditor>
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'Required',
+                      control: blogAddForm.controls['description']
+                    }"
+                  ></ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-0">
+            <label class="col-lg-4 col-form-label fw-bold fs-6">Publish</label>
+            <div class="col-lg-8 d-flex align-items-center">
+              <div class="form-check form-check-solid form-switch fv-row">
+                <input
+                  style="background-color: #1a4570"
+                  class="form-check-input w-45px h-30px"
+                  type="checkbox"
+                  formControlName="publish"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button
+          [routerLink]="['/admin/dashboard']"
+          class="btn btn-lg"
+          style="background-color: #1a4570; color: white; cursor: pointer"
+        >
+          Back
+        </button>
+        &nbsp;
+        <button
+          type="submit"
+          class="btn btn-lg"
+          style="background-color: #1a4570; color: white"
+          [disabled]="blogAddForm.invalid || (isSave$ | async) === true"
+        >
+          <ng-container *ngIf="isSave$ | async">
+            <span class="indicator-progress" [style.display]="'block'">
+              Please wait...
+              <span
+                class="spinner-border spinner-border-sm align-middle ms-2"
+              ></span>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="(isSave$ | async) === false">
+            <span class="indicator-label">Save</span>
+          </ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+>
+  <ng-container
+    *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        <span role="alert">
+          {{ message }}
+        </span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

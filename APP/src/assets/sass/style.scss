@@ -1,0 +1,23 @@
+//
+// Theme style
+//
+
+// Initialize
+@import "init";
+
+// Components
+@import "./core/components/components";
+@import "components/components";
+
+// Layout
+@import "layout/layout";
+
+// .card-header{
+//     background: #0188a8 !important;
+// }
+// .card .card-custom .gutter-b{
+//     box-shadow: 0px 0px 25px !important;
+// }
+// .color-white{
+//     color: white;
+// }
