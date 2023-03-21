@@ -156,8 +156,7 @@ export class BlogSetupComponent implements OnInit {
       subTitle: [
         '',
         Validators.compose([
-          Validators.required,
-          Validators.minLength(3),
+          Validators.minLength(0),
           Validators.maxLength(320),
         ]),
       ],
