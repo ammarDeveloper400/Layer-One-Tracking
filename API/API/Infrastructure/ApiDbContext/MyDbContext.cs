@@ -1,5 +1,7 @@
 ﻿using API.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using System.Reflection.Emit;
 
 namespace API.Infrastructure.ApiDbContext
 {
@@ -14,6 +16,10 @@ namespace API.Infrastructure.ApiDbContext
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Blog>()
+            .Property(s => s.Description)
+            .HasColumnType("ntext");
         }
 
         public DbSet<User> User { get; set; }

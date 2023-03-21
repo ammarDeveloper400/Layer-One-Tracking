@@ -6,7 +6,9 @@
       <div
         class="w-lg-800px w-md-800 bg-body rounded shadow-sm p-10 p-lg-15 mx-auto"
       >
-        <h1 class="toolbar py-5 py-lg-10">{{ blogDto?.title }}</h1>
+        <h1 class="toolbar py-5 py-lg-5">{{ blogDto?.title }}</h1>
+
+        <h3 class="toolbar py-5 py-lg-5">{{ blogDto?.subTitle }}</h3>
 
         <div>
           <img
@@ -15,6 +17,7 @@
             class="card-img-top"
             (error)="onImgError($event)"
             alt="Fissure in Sandstone"
+            style="object-fit: cover"
           />
         </div>
 

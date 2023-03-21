@@ -37,7 +37,7 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("ntext");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("varchar(MAX)");
@@ -55,10 +55,10 @@ namespace API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SubTitle")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("ntext");
 
                     b.Property<string>("Title")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("ntext");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");

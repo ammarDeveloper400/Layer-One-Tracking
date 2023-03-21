@@ -2,7 +2,7 @@
   <div class="foo">
     <img
       alt="Logo"
-      src="./assets/media/landing-cover.png"
+      src="./assets/media/landing-cover.jpg"
       class="h-450px"
       style="max-width: 100%; min-width: 100%"
     />
@@ -26,7 +26,7 @@
             class="card-img-top"
             (error)="onImgError($event)"
             alt="Fissure in Sandstone"
-            style="min-height: 400px"
+            style="min-height: 400px; object-fit: cover"
           />
         </section>
         <section class="col-lg-8">
@@ -34,8 +34,11 @@
             class="ps-10 pe-10"
             style="height: 100%; width: 100%; margin-top: 10%"
           >
-            <div>
+            <div class="subTitle-ellipsis">
               <h5>{{ blogDto?.title }}</h5>
+            </div>
+            <div class="subTitle-ellipsis">
+              <h6>{{ blogDto?.subTitle }}</h6>
             </div>
             <div
               [innerHTML]="blogDto?.description"
@@ -100,7 +103,7 @@
             style="cursor: pointer; min-height: 590px; max-height: 590px"
           >
             <div
-              class="card-header flex-nowrap border-0 pt-9"
+              class="card-header flex-nowrap border-0 pt-9 crop"
               style="cursor: pointer"
             >
               <img
@@ -109,6 +112,7 @@
                 class="card-img-top"
                 (error)="onImgError($event)"
                 alt="Fissure in Sandstone"
+                style="object-fit: cover "
               />
             </div>
 
@@ -117,7 +121,11 @@
               style="cursor: pointer"
             >
               <div>
-                <h5 class="card-title card-center">{{ blog.title }}</h5>
+                <h5 class="card-title card-center subTitle-ellipsis">{{ blog.title }}</h5>
+              </div>
+
+              <div>
+                <h6 class="card-title card-center subTitle-ellipsis">{{ blog.subTitle }}</h6>
               </div>
               <p
                 style="color: black"

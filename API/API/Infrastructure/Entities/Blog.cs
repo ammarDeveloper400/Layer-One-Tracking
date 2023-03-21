@@ -8,11 +8,14 @@ namespace API.Infrastructure.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Column(TypeName = "varchar(MAX)")]
+        //[Column(TypeName = "varchar(MAX)")]
+        [Column(TypeName = "ntext")]
         public string Title { get; set; } = string.Empty;
-        [Column(TypeName = "varchar(MAX)")]
+        [Column(TypeName ="ntext")]
+        //[Column(TypeName = "varchar(MAX)")]
         public string SubTitle { get; set; } = string.Empty;
-        [Column(TypeName = "varchar(MAX)")]
+        //[Column(TypeName = "varchar(MAX)")]
+        [Column(TypeName = "ntext")]
         public string Description { get; set; } = string.Empty;
         [Column(TypeName = "varchar(MAX)")]
         public string ImageUrl { get; set; } = string.Empty;
