@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230317185329_columntypechange")]
-    partial class columntypechange
+    [Migration("20230323105611_UpdatedColumnTypes")]
+    partial class UpdatedColumnTypes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,7 @@ namespace API.Migrations
                         .HasColumnType("ntext");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -57,10 +57,10 @@ namespace API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SubTitle")
-                        .HasColumnType("ntext");
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("ntext");
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -115,7 +115,7 @@ namespace API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -134,19 +134,19 @@ namespace API.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("varchar(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RoleId")
                         .HasColumnType("int");
